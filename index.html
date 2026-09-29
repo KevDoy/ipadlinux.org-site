@@ -4,18 +4,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>iPad Linux</title>
+	<title>iPad Linux: Run Linux on old iPads</title>
+	<meta name="description"
+		content="Tracking community efforts to run Linux on iPads: native ports, apps, boot tools, and news.">
+	<link rel="canonical" href="https://ipadlinux.org/">
 	<!-- Bootstrap -->
 	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/css.css">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-	<meta property="og:image" content="/og.jpg" />
+	<meta property="og:title" content="iPad Linux: Run Linux on old iPads" />
+	<meta property="og:url" content="https://ipadlinux.org/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://ipadlinux.org/og.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@iPadLinux" />
 	<meta property="og:description"
-		content="Linux on the iPad isn't a reality yet, at least not like on a desktop platform. With hardware becoming more and more powerful every year, obsolete iPadsshould be allowed to continue to serve a purpose. Obsolete iPads could be affordable personal computers and useful for project builds. We believe Linux is the key to bring new life to these devices." />
+		content="Native Linux now boots on the original iPad mini. Obsolete iPads should be allowed to keep serving a purpose, as affordable computers and machines for projects. We believe Linux is the key to bring new life to these devices." />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,219 +36,131 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"><img src="img/logo.svg" alt="Logo" class="mr-1" style="width: 50px;">
+	<nav class="site-nav" aria-label="Primary">
+		<a class="site-brand" href="#"><img src="img/logo.svg" alt="">
 			<strong>iPad Linux</strong></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-			aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+			<span class="nav-toggle-bars" aria-hidden="true"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarText">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="#about">About Linux on iPad</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#currentoptions">Current Options</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="#contact">Submit News</a>
-				</li>
-			</ul>
-			<span class="navbar-text">
-				<a href="https://twitter.com/IpadLinux">𝕏 / Twitter</a>
-			</span>
+		<div class="site-menu" id="site-menu">
+			<a href="#about">About</a>
+			<a href="#releases">Releases</a>
+			<a href="#resources">Resources</a>
+			<a href="#news">News</a>
+			<a href="#contact">Submit News</a>
+			<a href="https://twitter.com/IpadLinux">On 𝕏</a>
 		</div>
 	</nav>
 	<!-- Wrapper -->
 	<div id="wrapper">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="hero col-12">
-					<div class="logo col-10 col-md-5 col-xl-4 mx-auto text-center"><img src="img/ipad.png" alt="Logo"
-							class="img-fluid">
-						<h3><br>The iPad is too powerful to not get the Linux treatment.</h3>
-					</div>
-					<div class="text col-10 mx-auto"></div>
-				</div>
+		<header class="hero">
+			<div class="hero-inner">
+				<img src="img/ipad.png" alt="An iPad running a Linux desktop">
+				<h1>The iPad is too powerful to not get the Linux treatment.</h1>
 			</div>
-
-		</div>
-		<div id="about" class="container">
+		</header>
+		<section id="about" class="band band-white">
+		<div class="container">
 			<div class="row">
 				<div class="col-10 col-md-8 mx-auto text-center">
 					<h2 class="mt-5">Linux on iPad</h2>
-					<p class="mb-5">Linux on the iPad isn't a reality yet, at least not like on a desktop platform. With
-						hardware becoming more and
-						more powerful every year, obsolete iPads (<a
-							href="https://support.apple.com/en-us/HT201624">according
-							to Apple</a>) should be allowed to continue to serve a purpose. Obsolete iPads could be
-						affordable personal computers and useful for project builds. We believe Linux is the key to
-						bring new life to these devices.
-					</p>
+					<p class="mb-5">iPad Linux tracks community efforts to run Linux on iPads, especially the models Apple
+						<a href="https://support.apple.com/en-us/HT201624" target="_blank">no longer supports</a>.
+						Those iPads still work, and with Linux they could keep going as cheap computers or parts
+						for projects.</p>
 				</div>
-
 			</div>
-			<div class="row" id="currentoptions">
+		</div>
+		</section>
+		<section id="releases" class="band band-gray">
+		<div class="container">
+			<div class="row">
 				<div class="col-10 col-md-8 mx-auto text-center">
-					<h2 class="mt-5">Current Options</h2>
+					<h2 class="mt-5">Releases</h2>
+					<p>Projects that run Linux directly on iPad hardware, not inside an app.</p>
+					<p class="release-warning">These projects rely on jailbreaks and boot exploits, which can leave an iPad unusable or erase its data. Back up first, and only use a device you can afford to lose.</p>
+				</div>
+			</div>
+			<div class="release-filters" id="release-filters" hidden>
+				<label>Device
+					<select data-filter="device">
+						<option value="">All devices</option>
+					</select>
+				</label>
+				<label>Processor
+					<select data-filter="processor">
+						<option value="">All processors</option>
+					</select>
+				</label>
+				<div class="release-filter">
+					<span>Status</span>
+					<div class="release-status" role="group" aria-label="Project status">
+						<button type="button" data-status="all" aria-pressed="true">All</button>
+						<button type="button" data-status="active">Active</button>
+						<button type="button" data-status="inactive">Inactive</button>
+					</div>
+				</div>
+				<button type="button" data-filter-reset hidden>Show all</button>
+			</div>
+			<p class="release-empty" hidden>No projects match these filters.</p>
+			<div class="release-list">
+				<article class="release-card bg-light" data-status="active">
+					<header class="release-header">
+						<div>
+							<h3 class="mb-1">Project Cascadia</h3>
+							<p class="mb-0">by <a href="https://github.com/rzxvx">rzxvx</a> · Updated September 2026</p>
+						</div>
+						<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia" target="_blank">View on GitHub</a>
+					</header>
+					<p>Runs a current Linux kernel and Alpine Linux on the original iPad mini, with a touch desktop and Wi-Fi.</p>
+					<ul class="device-list">
+						<li data-device="ipad-mini-1" data-device-label="iPad mini (1st gen)" data-processor="a5" data-processor-label="Apple A5">
+							<img src="img/ipad-mini-1.png" alt="iPad mini (1st generation)">
+							<span>iPad mini (1st gen) · Apple A5</span>
+						</li>
+					</ul>
+					<p class="release-needs"><strong>What you need:</strong> a Wi-Fi iPad mini 1, a computer, and either jailbroken iOS on the iPad or a Raspberry Pi Pico.</p>
+					<p class="release-limit">iOS stays installed. Linux isn't written to the iPad's storage; its files live on a connected computer or in memory. Installing to the iPad is on the <a href="https://github.com/rzxvx/Project-Cascadia#roadmap" target="_blank">roadmap</a>.</p>
+					<details>
+						<summary>Working</summary>
+						<ul>
+							<li>Linux 6.12 and Alpine Linux 3.24</li>
+							<li>Both CPU cores</li>
+							<li>Multi-touch, and an XFCE desktop with an on-screen keyboard</li>
+							<li>Wi-Fi on 2.4 and 5 GHz</li>
+							<li>SSH, and installing packages with <code>apk</code></li>
+							<li>Read-only access to iOS system files</li>
+						</ul>
+					</details>
+					<details>
+						<summary>Shortcomings</summary>
+						<ul>
+							<li>It can't boot by itself. Each boot is started from jailbroken iOS or a Raspberry Pi Pico.</li>
+							<li>No graphics acceleration, so the desktop is drawn by the CPU.</li>
+							<li>USB accessories such as flash drives and keyboards don't work.</li>
+							<li>Wi-Fi has only been tested on open networks, not password-protected ones.</li>
+							<li>Your iOS data, such as photos and apps, can't be read.</li>
+							<li>Only the Wi-Fi iPad mini 1 is supported. Newer chips are planned.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>Built on</summary>
+						<p class="release-credits">Built on <a href="https://github.com/teutekeune/iBSSloader">iBSSloader</a> by teutekeune, <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy iOS Kit</a> and <a href="https://github.com/LukeZGD/EverPwnage">EverPwnage</a> by LukeZGD, <a href="https://github.com/NyanSatan/checkm8_bootkit">checkm8_bootkit</a> by NyanSatan, <a href="https://github.com/iH8sn0w/iBoot32Patcher">iBoot32Patcher</a> by iH8sn0w, and the Z2 touch work from <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>.</p>
+					</details>
+				</article>
+			</div>
+		</div>
+		</section>
+		<section id="resources" class="band band-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-10 col-md-8 mx-auto text-center">
+					<h2 class="mt-5">Resources and Tools</h2>
+					<p>Apps that bring Linux to iPadOS today, the tools developers use to port it to the hardware,
+						related projects, and people worth following.</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 col-lg-6 mt-3">
-					<div class="mx-auto bg-light p-2 rounded">
-						<h2>Released</h2>
-						<h4>Current</h4>
-						<a href="https://ish.app" target="_blank" class="link-black"><img src="img/ishlogo.png"
-								height="30px" class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>iSH</strong><br>The Linux shell
-								on iPadOS</p>
-
-						</a>
-						<br> <span class="small rounded bg-info p-1 text-white">iOS 11+</span> <span
-							class="small rounded bg-info p-1 text-white">iPadOS 13+</span> <span
-							class="small rounded bg-danger p-1 text-white">App</span><br><br>
-
-
-					
-						<a href="https://getutm.app" target="_blank" class="link-black"><img src="img/utm.png"
-								height="30px" class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>UTM</strong><br>Run virtual
-								machines on iOS &amp; iPadOS</p>
-
-						</a><br><span class="small rounded bg-info p-1 text-white">iOS 11+</span> <span
-							class="small rounded bg-info p-1 text-white">iPadOS 13+</span> <span
-							class="small rounded bg-danger p-1 text-white">App</span><br><br>
-						<h4>Outdated</h4>
-						<a href="https://github.com/chriskmanx/qmole" target="_blank" class="link-black"><img
-								src="img/qmole.png" height="30px" class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>QMole</strong><br>Linux
-								Compatibility Container for iPad</p>
-						</a><br><span class="small rounded bg-secondary p-1 text-white">iPad 1</span> <span
-							class="small rounded bg-danger p-1 text-white">Compatibility Layer</span><br><br>
-
-						<p class="d-inline" style="vertical-align: middle"><br></p>
-					</div>
-				</div>
-				<div class="col-12 col-lg-6 mt-3">
-					<div class="mx-auto bg-light p-2 rounded">
-						<h2>Dev Tools</h2>
-						<h4>Released</h4>
-						
-
-						<a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank" class="link-black"><img
-							src="img/usbplitter8.png"
-							height="30px" class="rounded" alt="">
-						<p class="d-inline" style="vertical-align: middle"> <strong>usbliter8</strong><br>An A12/A13 SecureROM exploit
-
-						</p>
-
-					</a><br>
-					<span class="small rounded bg-secondary p-1 text-white">A12 - A13</span>
-					<span class="small rounded bg-danger p-1 text-white">Exploit</span><br><br>
-
-
-						<a href="https://projectsandcastle.org" target="_blank" class="link-black"><img
-								src="https://images.squarespace-cdn.com/content/v1/5e5a763e2e298c722569a586/1583336886416-QVCUJMA3LLDZ5L26VDYI/favicon.ico"
-								height="30px" class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>Project
-									Sandcastle</strong><br>Linux and Android on iPhone 7</p>
-
-						</a><br>
-						
-						<span class="small rounded bg-danger p-1 text-white">Bootable OS</span><br><br>
-						<a href="https://checkra.in/" target="_blank" class="link-black"><img src="img/checkrain.png"
-								height="30px" class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>checkra1n /
-									PongoOS</strong><br>Semi-tethered jailbreak to all, based on the ‘checkm8’ bootrom
-								exploit.</p>
-
-						</a><br><span class="small rounded bg-info p-1 text-white">iPadOS 12.3+</span> <span
-							class="small rounded bg-danger p-1 text-white">Boot Exploit</span><br><br>
-						<h4>Work in Progress</h4>
-						<a href="https://github.com/SoMainline/linux-apple-resources/blob/master/HOWTO.md"
-							target="_blank" class="link-black"><img src="img/somainline.png" height="30px"
-								class="rounded" alt="">
-							<p class="d-inline" style="vertical-align: middle"> <strong>Linux Apple
-									Resources</strong><br>Guide to building and booting Linux on iDevices w/ custom
-								Linux kernel by SoMainline</p>
-
-						</a><br><span class="small rounded bg-secondary p-1 text-white">A7 – A11</span> <span
-							class="small rounded bg-danger p-1 text-white">Kernel & Guide</span> <span
-							class="small rounded bg-danger p-1 text-white">Bootable OS</span><br><br>
-						<p class="d-inline" style="vertical-align: middle"><br></p>
-					</div>
-				</div>
-				<div class="col-12 col-lg-6 mt-3">
-					<div class="mx-auto bg-light p-2 rounded">
-						<h2>Additional Projects</h2>
-
-						<h4>Released</h4>
-						<a href="https://github.com/rcarmo/ios-linuxkit?" target="_blank" class="link-black"><img
-							src="https://github.com/rcarmo/ios-linuxkit/raw/master/docs/icon-256.png" height="30px"
-							class="rounded" alt="">
-						<p class="d-inline" style="vertical-align: middle"> <strong>ios-linuxkit</strong><br>An
-							ARM64 Linux runtime for iOS projects</p>
-
-					</a>
-
-					<br> <span
-							class="small rounded bg-danger p-1 text-white">Runtime</span><br><br>
-						<h4>Work in Progress</h4>
-
-						<a href="https://wiki.postmarketos.org/wiki/Apple_iPad_1G_(apple-ipad1g)" target="_blank"
-							class="link-black"><img src="img/postmarket.png" height="30px" alt="">
-							<p class="d-inline" style="vertical-align: middle">
-								<strong>postmarketOS</strong><br>Touch-optimized and pre-configured Alpine Linux
-							</p>
-						</a><br> <span class="small rounded bg-danger p-1 text-white">Bootable OS</span><br><br>
-
-						<p class="d-inline" style="vertical-align: middle"><br></p>
-					</div>
-				</div>
-
-				<div class="col-12 col-lg-6 mt-3">
-					<div class="mx-auto bg-light p-2 rounded">
-						<h2>Who to follow</h2>
-						<h4>People and Projects</h4>
-
-						<a href="https://twitter.com/IpadLinux" target="_blank" class="link-black"><img
-								src="https://pbs.twimg.com/profile_images/1163887255779328005/cXV3a9Dx_400x400.jpg"
-								height="30px" class="rounded" alt="">
-							<strong>iPad Linux</strong><br>@iPadLinux on
-							𝕏<br><!-- Place this tag where you want the button to render. -->
-							<a class="github-button" href="https://github.com/kevdoy/ipadlinux.org-site/subscription"
-								data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large"
-								aria-label="Watch kevdoy/ipadlinux.org-site on GitHub">Watch</a></p>
-						</a>
-						<a href="https://twitter.com/konradybcio" target="_blank" class="link-black"><img
-								src="https://pbs.twimg.com/profile_images/1347313853768601600/X0_177C2_400x400.jpg"
-								height="30px" class="rounded" alt="">
-							<strong>Konrad Dybcio</strong><br>@konradybcio on 𝕏</p>
-						</a>
-						<a href="https://x.com/riscv64" target="_blank" class="link-black"><img
-								src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
-								height="30px" class="rounded" alt="">
-							<strong>Nick Chan</strong><br>@riscv64 on 𝕏</p>
-						</a>
-						<a href="https://twitter.com/AsahiLinux/" target="_blank" class="link-black"><img
-								src="https://pbs.twimg.com/profile_images/1345991038565904385/vfqQAQ3p_400x400.jpg"
-								height="30px" class="rounded" alt="">
-							<strong>Asahi Linux</strong><br>@asahilinux on 𝕏</p>
-						</a>
-						<a href="https://twitter.com/quaack723" target="_blank" class="link-black"><img
-								src="https://pbs.twimg.com/profile_images/1531767470943522818/umh2-qoM_400x400.jpg"
-								height="30px" class="rounded" alt="">
-							<strong>Markuss Broks</strong><br>@quaack723 on 𝕏</p>
-						</a>
-
-						<p class="d-inline" style="vertical-align: middle"><br></p>
-					</div>
-				</div>
-
-			</div>
-			<div class="row mt-2">
 				<div class="col-12 text-center">
 					<span class="bg-light p-2 rounded d-inline-block mt-1">
 						<div class="square bg-secondary rounded"></div> Hardware Compatibility
@@ -253,8 +173,201 @@
 					</span>
 				</div>
 			</div>
-
+			<h3 class="resource-group">Apps</h3>
+			<div class="resource-grid">
+				<a class="resource-tile" href="https://ish.app" target="_blank">
+					<img src="img/ishlogo.png" alt="">
+					<strong>iSH</strong>
+					<p>A Linux shell that runs as an app, from the App Store</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-info p-1 text-white">iOS 11+</span>
+						<span class="small rounded bg-danger p-1 text-white">App</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://getutm.app" target="_blank">
+					<img src="img/utm.png" alt="">
+					<strong>UTM</strong>
+					<p>Virtual machines on iPadOS. UTM SE is on the App Store; the full app is sideloaded.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-info p-1 text-white">iOS 11+</span>
+						<span class="small rounded bg-danger p-1 text-white">App</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/chriskmanx/qmole" target="_blank">
+					<img src="img/qmole.png" alt="">
+					<strong>QMole</strong>
+					<p>Linux compatibility container for iPad</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">iPad 1</span>
+						<span class="small rounded bg-danger p-1 text-white">Compatibility Layer</span>
+					</div>
+				</a>
+			</div>
+			<h3 class="resource-group">Dev tools</h3>
+			<div class="resource-grid">
+				<a class="resource-tile" href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">
+					<img src="img/usbplitter8.png" alt="">
+					<strong>usbliter8</strong>
+					<p>An A12/A13 SecureROM exploit</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">A12–A13</span>
+						<span class="small rounded bg-danger p-1 text-white">Exploit</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://projectsandcastle.org" target="_blank">
+					<img src="img/sandcastle.webp" alt="">
+					<strong>Project Sandcastle</strong>
+					<p>Linux and Android on iPhone 7</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-danger p-1 text-white">Bootable OS</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://checkra.in/" target="_blank">
+					<img src="img/checkrain.png" alt="">
+					<strong>checkra1n / PongoOS</strong>
+					<p>A jailbreak for A7–A11 devices, built on checkm8. It must be rerun after every reboot.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-info p-1 text-white">iOS 12.3+</span>
+						<span class="small rounded bg-danger p-1 text-white">Boot Exploit</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/LukeZGD/Legacy-iOS-Kit" target="_blank">
+					<img src="https://github.com/LukeZGD.png" alt="">
+					<strong>Legacy iOS Kit</strong>
+					<p>Restore, downgrade, and jailbreak older devices. Cascadia uses it to put the iPad into a mode that can load Linux.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">32-bit</span>
+						<span class="small rounded bg-danger p-1 text-white">Tool</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/LukeZGD/EverPwnage" target="_blank">
+					<img src="https://github.com/LukeZGD.png" alt="">
+					<strong>EverPwnage</strong>
+					<p>Untethered jailbreak for 32-bit devices on iOS 7.0–9.3.6, including the A5.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">A5</span>
+						<span class="small rounded bg-info p-1 text-white">iOS 7–9.3.6</span>
+						<span class="small rounded bg-danger p-1 text-white">Jailbreak</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/axi0mX/ipwndfu" target="_blank">
+					<img src="https://github.com/axi0mX.png" alt="">
+					<strong>ipwndfu / checkm8</strong>
+					<p>axi0mX’s open-source jailbreak tool, and the checkm8 BootROM exploit it carries.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">A5–A11</span>
+						<span class="small rounded bg-danger p-1 text-white">Exploit</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/iH8sn0w/iBoot32Patcher" target="_blank">
+					<img src="https://github.com/iH8sn0w.png" alt="">
+					<strong>iBoot32Patcher</strong>
+					<p>iH8sn0w’s patcher for 32-bit iBoot, from iPhone OS 2 through iOS 10.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">32-bit</span>
+						<span class="small rounded bg-danger p-1 text-white">Patcher</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/NyanSatan/checkm8_bootkit" target="_blank">
+					<img src="https://github.com/NyanSatan.png" alt="">
+					<strong>checkm8_bootkit</strong>
+					<p>NyanSatan’s kit for booting a custom bootloader on 32-bit devices.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">32-bit</span>
+						<span class="small rounded bg-danger p-1 text-white">Boot tool</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/SoMainline/linux-apple-resources/blob/master/HOWTO.md" target="_blank">
+					<img src="img/somainline.png" alt="">
+					<strong>Linux Apple Resources</strong>
+					<p>SoMainline’s guide to building and booting a custom Linux kernel on iPhones and iPads</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">A7–A11</span>
+						<span class="small rounded bg-danger p-1 text-white">Kernel &amp; Guide</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://github.com/teutekeune/iBSSloader" target="_blank">
+					<img src="https://github.com/teutekeune.png" alt="">
+					<strong>iBSSloader</strong>
+					<p>teutekeune’s original work booting Linux on the iPad mini 1. Project Cascadia is built on it.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">iPad mini 1</span>
+						<span class="small rounded bg-danger p-1 text-white">Boot chain</span>
+					</div>
+				</a>
+			</div>
+			<h3 class="resource-group">Other projects</h3>
+			<div class="resource-grid">
+				<a class="resource-tile" href="https://github.com/rcarmo/ios-linuxkit" target="_blank">
+					<img src="img/ios-linuxkit.png" alt="">
+					<strong>ios-linuxkit</strong>
+					<p>An ARM64 Linux runtime for iOS projects</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-danger p-1 text-white">Runtime</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://wiki.postmarketos.org/wiki/Apple_iPad_1G_(apple-ipad1g)" target="_blank">
+					<img src="img/postmarket.png" alt="">
+					<strong>postmarketOS</strong>
+					<p>Touch-optimized and pre-configured Alpine Linux</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-danger p-1 text-white">Bootable OS</span>
+					</div>
+				</a>
+			</div>
+			<h3 class="resource-group">Who to follow</h3>
+			<div class="people-row">
+				<span class="person person-watch">
+					<a class="person-link" href="https://twitter.com/IpadLinux" target="_blank">
+						<img src="img/people-ipadlinux.jpg" alt="">
+						<span><strong>iPad Linux</strong><span>@iPadLinux on 𝕏</span></span>
+					</a>
+					<a class="github-button" href="https://github.com/kevdoy/ipadlinux.org-site/subscription" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Watch kevdoy/ipadlinux.org-site on GitHub">Watch</a>
+				</span>
+				<a class="person" href="https://github.com/rzxvx" target="_blank">
+					<img src="https://github.com/rzxvx.png" alt="">
+					<span><strong>rzxvx</strong><span>Project Cascadia</span></span>
+				</a>
+				<a class="person" href="https://github.com/teutekeune" target="_blank">
+					<img src="https://github.com/teutekeune.png" alt="">
+					<span><strong>teutekeune</strong><span>iBSSloader</span></span>
+				</a>
+				<a class="person" href="https://github.com/LukeZGD" target="_blank">
+					<img src="https://github.com/LukeZGD.png" alt="">
+					<span><strong>LukeZGD</strong><span>Legacy iOS Kit</span></span>
+				</a>
+				<a class="person" href="https://github.com/axi0mX" target="_blank">
+					<img src="https://github.com/axi0mX.png" alt="">
+					<span><strong>axi0mX</strong><span>checkm8</span></span>
+				</a>
+				<a class="person" href="https://github.com/NyanSatan" target="_blank">
+					<img src="https://github.com/NyanSatan.png" alt="">
+					<span><strong>NyanSatan</strong><span>checkm8_bootkit</span></span>
+				</a>
+				<a class="person" href="https://github.com/iH8sn0w" target="_blank">
+					<img src="https://github.com/iH8sn0w.png" alt="">
+					<span><strong>iH8sn0w</strong><span>iBoot32Patcher</span></span>
+				</a>
+				<a class="person" href="https://twitter.com/konradybcio" target="_blank">
+					<img src="img/people-konradybcio.jpg" alt="">
+					<span><strong>Konrad Dybcio</strong><span>@konradybcio on 𝕏</span></span>
+				</a>
+				<a class="person" href="https://x.com/riscv64" target="_blank">
+					<img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png" alt="">
+					<span><strong>Nick Chan</strong><span>@riscv64 on 𝕏</span></span>
+				</a>
+				<a class="person" href="https://twitter.com/AsahiLinux/" target="_blank">
+					<img src="img/people-asahilinux.jpg" alt="">
+					<span><strong>Asahi Linux</strong><span>@asahilinux on 𝕏</span></span>
+				</a>
+				<a class="person" href="https://twitter.com/quaack723" target="_blank">
+					<img src="img/people-quaack723.jpg" alt="">
+					<span><strong>Markuss Broks</strong><span>@quaack723 on 𝕏</span></span>
+				</a>
+			</div>
 		</div>
+		</section>
+		<section id="news" class="band band-gray">
 		<div class="container">
 			<div class="row">
 				<div class="col-10 col-md-8 mx-auto text-center">
@@ -262,6 +375,22 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
+					<a href="https://github.com/rzxvx/Project-Cascadia" target="_blank"
+						class="text-decoration-none link-black">
+						<div class="card">
+							<img class="img-fluid card-img-contain" src="img/ipad-mini-1.png" alt="">
+							<div class="card-body">
+								<p class="card-text">
+									<small>September 2026</small>
+								</p>
+								<h4><strong>Project Cascadia boots native Linux on the iPad mini</strong></h4>
+								<p>rzxvx's port runs Linux 6.12 and Alpine Linux on the original iPad mini, with touch, Wi-Fi and an XFCE desktop.</p>
+								<div class="btn btn-dark">Read on GitHub</div>
+							</div>
+						</div>
+					</a>
+				</div>
 				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
 					<a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank"
 						class="text-decoration-none link-black">
@@ -272,7 +401,7 @@
 									<small>June 18, 2026</small>
 								</p>
 								<h4><strong>Research and Proof of Concept for A12/A13 SecureROM Exploit</strong></h4>
-								<p>usbliter8 documents an 'unpatchable' iPhone BootROM Vulnerability that a research team at Paradigm Shift discovered.</p>
+								<p>usbliter8 documents an "unpatchable" BootROM vulnerability in A12 and A13 devices, discovered by a research team at Paradigm Shift.</p>
 								<div class="btn btn-dark">Read on Paradigm Shift</div>
 							</div>
 						</div>
@@ -321,11 +450,8 @@
 									<small>February 19, 2023</small>
 								</p>
 								<h4><strong>Does Linux run on the iPad in February 2023?</strong></h4>
-								<p>Since the release of the first iPad in 2010, the tablet...</p>
-								<a href="https://medium.com/@kevdoy/does-linux-run-on-the-ipad-in-february-2023-dac2997a1c0f"
-									target="_blank">
-									<div class="btn btn-dark">Read on Medium</div>
-								</a>
+								<p>A check-in on where Linux on the iPad stood in early 2023.</p>
+								<div class="btn btn-dark">Read on Medium</div>
 							</div>
 						</div>
 					</a>
@@ -340,9 +466,7 @@
 								</p>
 								<h4><strong>Linux on A7-A8X</strong></h4>
 								<p>How we got Linux on the iPhone, iPad and other iDevices</p>
-								<a href="https://konradybcio.pl/linuxona7/" target="_blank">
-									<div class="btn btn-dark">Read on Konrad Dybcio's Blog</div>
-								</a>
+								<div class="btn btn-dark">Read on Konrad Dybcio's Blog</div>
 							</div>
 						</div>
 					</a>
@@ -358,10 +482,7 @@
 								</p>
 								<h4><strong>A developer got Ubuntu Linux booting on the Apple iPhone 7</strong></h4>
 								<p>Video of Ubuntu running on an Apple A10 processor.</p>
-								<a href="https://www.xda-developers.com/apple-iphone-7-ubuntu-linux-checkra1n-project-sandcastle/"
-									target="_blank">
-									<div class="btn btn-dark">Read on XDA Developers</div>
-								</a>
+								<div class="btn btn-dark">Read on XDA Developers</div>
 							</div>
 						</div>
 					</a>
@@ -373,13 +494,11 @@
 							<img class="img-fluid" src="img/1120-discussion-ycomb.jpg" alt="">
 							<div class="card-body">
 								<p class="card-text">
-									<small>November 20, 2020</small>
+									<small>November 21, 2020</small>
 								</p>
-								<h4><strong>Hacker News Discussion</strong></h4>
-								<p>Posted by homarp.</p>
-								<a href="https://news.ycombinator.com/item?id=25172883" target="_blank">
-									<div class="btn btn-dark">Read on Hacker News</div>
-								</a>
+								<h4><strong>"Linux on iPad" on Hacker News</strong></h4>
+								<p>This site reached the Hacker News front page, with over 280 comments on the state of Linux on iPads.</p>
+								<div class="btn btn-dark">Read on Hacker News</div>
 							</div>
 						</div>
 					</a>
@@ -388,18 +507,14 @@
 					<a href="https://medium.com/@kevdoy/the-state-of-linux-on-the-ipad-in-march-2020-18e988b99444"
 						target="_blank" class="text-decoration-none link-black">
 						<div class="card">
-							<img class="img-fluid" src="https://miro.medium.com/max/500/1*OC7ReeyQDBprXIfJpw_WxA.png"
-								alt="">
+							<img class="img-fluid" src="img/032020-article-kevdoy.png" alt="">
 							<div class="card-body">
 								<p class="card-text">
 									<small>March 20, 2020</small>
 								</p>
 								<h4><strong>The state of Linux on the iPad in March 2020</strong></h4>
-								<p>A summary has of the latest options of Linux on iPad in March of 2020.</p>
-								<a href="https://medium.com/@kevdoy/the-state-of-linux-on-the-ipad-in-march-2020-18e988b99444"
-									target="_blank">
-									<div class="btn btn-dark">Read on Medium</div>
-								</a>
+								<p>A summary of the options for running Linux on an iPad in March 2020.</p>
+								<div class="btn btn-dark">Read on Medium</div>
 							</div>
 						</div>
 					</a>
@@ -415,14 +530,9 @@
 								</p>
 								<h4><strong>Run Android on an iPhone With 'Project Sandcastle' Jailbreaking
 										Tool</strong></h4>
-								<p>Corellium used the Checkra1n jailbreaking tool to port Google’s Android OS to the
-									iPhone. The result is Project Sandcastle, which can load Android 10 on an iPhone 7
-									or 7
-									Plus. Apple is likely to be displeased.</p>
-								<a href="https://www.pcmag.com/news/run-android-on-an-iphone-with-project-sandcastle-jailbreaking-tool"
-									target="_blank">
-									<div class="btn btn-dark">Read on PCMag</div>
-								</a>
+								<p>Corellium used the checkra1n jailbreak to port Android to the iPhone. The result,
+									Project Sandcastle, loads Android 10 on an iPhone 7 or 7 Plus.</p>
+								<div class="btn btn-dark">Read on PCMag</div>
 							</div>
 						</div>
 					</a>
@@ -431,14 +541,15 @@
 			</div>
 
 		</div>
+		</section>
 
-		<div class="section contact bg-light mt-4">
-			<div id="contact" class="container">
+		<section id="contact" class="band band-white contact">
+			<div class="container">
 				<div class="row">
 					<div class="col-10 mx-auto text-center">
 						<h2 class="mt-5">Got a news tip for us?</h2>
-						<p class="mb-5">Got some news to add to the website? Are you working on something? Please let us
-							know!
+						<p class="mb-5">Working on a port, or found an article we missed? Open a GitHub issue with a link,
+							the device and chip it covers, and whether the project is still active.
 							<br><br>
 							<!-- Place this tag where you want the button to render. -->
 							<a class="github-button" href="https://github.com/kevdoy/ipadlinux.org-site/issues"
@@ -450,41 +561,15 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="section mt-4">
-			<div class="container mb-5">
-				<div class="row  text-center">
-					<div class="col-10 offset-1 mt-5">
-						<h2>Projects We Love</h2>
-					</div>
-					<div class="col-lg-10 mx-auto mt-2 text-center">
-						<div class="mt-4 mb-5">
-
-							<a href="https://wineformac.org/?ref=ipadlinux" target="_blank"
-								class="text-decoration-none">
-								<img src="img/project-wineformac.jpg" width="280" alt="Wine For Mac">
-							</a>
-
-							<a href="https://ysui.org/?ref=ipadlinux" target="_blank" class="text-decoration-none">
-								<img src="img/project-ysui.jpg" width="280" alt="ysUI">
-							</a>
-						</div>
-					</div>
-
-
-
-
-				</div>
-			</div>
-		</div>
-
-		<footer class="section contact">
+		</section>
+		<footer class="band band-gray contact">
 			<div class="container">
 				<div class="row py-5">
 
 					<div class="col-12 col-md-9 text-center mx-auto">
 						<p class="copyright text-black">&copy;
-							2019 - 2025 iPad Linux. All Rights Reserved.<br><a href="https://kevdoy.com/?src=ipadlinux"
+							2019–2026 iPad Linux. Content licensed under
+							<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.<br><a href="https://kevdoy.com/?src=ipadlinux"
 								style="font-size: 10px; color: #3F51B5; text-decoration: none;" target="_blank">a <img
 									src="https://kevdoy.com/img/nav-logo.jpg"
 									style="height: 20px; vertical-align: text-center" alt="KevDoy"> project</a></p>
@@ -500,6 +585,104 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+	<script>
+		(function () {
+			var nav = document.querySelector(".site-nav");
+			var toggle = nav && nav.querySelector(".nav-toggle");
+			var menu = document.getElementById("site-menu");
+			if (nav && toggle && menu) {
+				var desktop = window.matchMedia("(min-width: 768px)");
+				function setOpen(open) {
+					nav.classList.toggle("is-open", open);
+					toggle.setAttribute("aria-expanded", open ? "true" : "false");
+					toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+				}
+				toggle.addEventListener("click", function () {
+					setOpen(!nav.classList.contains("is-open"));
+				});
+				menu.addEventListener("click", function (event) {
+					if (event.target.closest("a")) setOpen(false);
+				});
+				document.addEventListener("keydown", function (event) {
+					if (event.key === "Escape") setOpen(false);
+				});
+				desktop.addEventListener("change", function (event) {
+					if (event.matches) setOpen(false);
+				});
+			}
+		})();
+		(function () {
+			var root = document.getElementById("release-filters");
+			if (!root) return;
+			var cards = Array.prototype.slice.call(document.querySelectorAll(".release-card"));
+			root.hidden = cards.length < 2;
+			var empty = document.querySelector(".release-empty");
+			var deviceSelect = root.querySelector('[data-filter="device"]');
+			var processorSelect = root.querySelector('[data-filter="processor"]');
+			var statusButtons = root.querySelectorAll("[data-status]");
+			var reset = root.querySelector("[data-filter-reset]");
+			var status = "all";
+
+			function addOptions(select, valueName, labelName) {
+				var seen = {};
+				cards.forEach(function (card) {
+					Array.prototype.forEach.call(card.querySelectorAll(".device-list li"), function (chip) {
+						var value = chip.getAttribute(valueName);
+						if (!value || seen[value]) return;
+						seen[value] = true;
+						var option = document.createElement("option");
+						option.value = value;
+						option.textContent = chip.getAttribute(labelName) || value;
+						select.appendChild(option);
+					});
+				});
+			}
+
+			function chipMatches(card, name, value) {
+				if (!value) return true;
+				return Array.prototype.some.call(card.querySelectorAll(".device-list li"), function (chip) {
+					return chip.getAttribute(name) === value;
+				});
+			}
+
+			function apply() {
+				var visible = 0;
+				cards.forEach(function (card) {
+					var show = (status === "all" || card.getAttribute("data-status") === status) &&
+						chipMatches(card, "data-device", deviceSelect.value) &&
+						chipMatches(card, "data-processor", processorSelect.value);
+					card.classList.toggle("is-filtered-out", !show);
+					if (show) visible += 1;
+				});
+				if (empty) empty.hidden = visible !== 0;
+				reset.hidden = deviceSelect.value === "" && processorSelect.value === "" && status === "all";
+			}
+
+			addOptions(deviceSelect, "data-device", "data-device-label");
+			addOptions(processorSelect, "data-processor", "data-processor-label");
+			deviceSelect.addEventListener("change", apply);
+			processorSelect.addEventListener("change", apply);
+			Array.prototype.forEach.call(statusButtons, function (button) {
+				button.addEventListener("click", function () {
+					status = button.getAttribute("data-status");
+					Array.prototype.forEach.call(statusButtons, function (other) {
+						other.setAttribute("aria-pressed", other === button ? "true" : "false");
+					});
+					apply();
+				});
+			});
+			reset.addEventListener("click", function () {
+				deviceSelect.value = "";
+				processorSelect.value = "";
+				status = "all";
+				Array.prototype.forEach.call(statusButtons, function (button) {
+					button.setAttribute("aria-pressed", button.getAttribute("data-status") === "all" ? "true" : "false");
+				});
+				apply();
+			});
+			apply();
+		})();
+	</script>
 </body>
 
 </html>
