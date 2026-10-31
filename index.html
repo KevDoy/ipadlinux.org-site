@@ -104,50 +104,143 @@
 			</div>
 			<p class="release-empty" hidden>No projects match these filters.</p>
 			<div class="release-list">
-				<article class="release-card bg-light" data-status="active">
-					<header class="release-header">
-						<div>
-							<h3 class="mb-1">Project Cascadia</h3>
-							<p class="mb-0">by <a href="https://github.com/rzxvx">rzxvx</a> · Updated September 2026</p>
-						</div>
-						<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia" target="_blank">View on GitHub</a>
-					</header>
-					<p>Runs a current Linux kernel and Alpine Linux on the original iPad mini, with a touch desktop and Wi-Fi.</p>
+				<details class="release-card bg-light" data-status="active">
+					<summary>
+						<header class="release-header">
+							<div>
+								<h3 class="mb-1">Omarchy A</h3>
+								<p class="mb-0">by <a href="https://github.com/henrikklee">Henrik Klee</a>, <a href="https://github.com/OrchardLinux">OrchardLinux</a> · Updated October 2026</p>
+							</div>
+							<span class="release-chevron" aria-hidden="true"></span>
+						</header>
+						<ul class="pill-row device-preview"></ul>
+						<ul class="pill-row feature-pills">
+							<li class="pill-yes">Installable</li>
+							<li class="pill-yes">Touch</li>
+							<li class="pill-yes">Wi-Fi</li>
+							<li class="pill-yes">Bluetooth</li>
+							<li class="pill-limit">Tethered boot</li>
+							<li class="pill-limit">No GPU</li>
+						</ul>
+					</summary>
+					<div class="release-body">
+					<div class="release-actions">
+						<a class="btn btn-dark" href="https://github.com/OrchardLinux/omarchy-a" target="_blank">View on GitHub</a>
+						<a class="btn btn-dark" href="https://github.com/OrchardLinux/orchard" target="_blank">Orchard</a>
+					</div>
+					<p>A bootable Arch Linux ARM desktop for the iPad, with Omarchy's look adapted for touch. On the iPad 6 Wi-Fi model it installs onto the tablet's storage, beside iPadOS. <a href="https://github.com/OrchardLinux/orchard">Orchard</a> is the hardware support, kernel patches, and the tool that builds, boots, and installs it. iPad 5, iPad 7, iPad Air 2, and iPhone 6 support is in Orchard and still experimental.</p>
 					<ul class="device-list">
-						<li data-device="ipad-mini-1" data-device-label="iPad mini (1st gen)" data-processor="a5" data-processor-label="Apple A5">
-							<img src="img/ipad-mini-1.png" alt="iPad mini (1st generation)">
-							<span>iPad mini (1st gen) · Apple A5</span>
+						<li class="device-plain" data-device="ipad-6" data-device-label="iPad (6th gen)" data-processor="a10" data-processor-label="Apple A10">
+							<span>iPad (6th gen, Wi-Fi) · Apple A10</span>
+						</li>
+						<li class="device-plain" data-device="ipad-5" data-device-label="iPad (5th gen)" data-processor="a9" data-processor-label="Apple A9">
+							<span>iPad (5th gen) · Apple A9 · experimental</span>
+						</li>
+						<li class="device-plain" data-device="ipad-7" data-device-label="iPad (7th gen)" data-processor="a10" data-processor-label="Apple A10">
+							<span>iPad (7th gen) · Apple A10 · experimental</span>
+						</li>
+						<li class="device-plain" data-device="ipad-air-2" data-device-label="iPad Air 2" data-processor="a8x" data-processor-label="Apple A8X">
+							<span>iPad Air 2 · Apple A8X · experimental</span>
+						</li>
+						<li class="device-plain" data-device="iphone-6" data-device-label="iPhone 6" data-processor="a8" data-processor-label="Apple A8">
+							<span>iPhone 6 · Apple A8 · experimental</span>
 						</li>
 					</ul>
-					<p class="release-needs"><strong>What you need:</strong> a Wi-Fi iPad mini 1, a computer, and either jailbroken iOS on the iPad or a Raspberry Pi Pico.</p>
-					<p class="release-limit">iOS stays installed. Linux isn't written to the iPad's storage; its files live on a connected computer or in memory. Installing to the iPad is on the <a href="https://github.com/rzxvx/Project-Cascadia#roadmap" target="_blank">roadmap</a>.</p>
+					<p class="release-needs"><strong>What you need:</strong> for Omarchy A, the iPad 6 Wi-Fi model on iPadOS 16 or later, a Mac or Linux computer, and a USB data cable. Free at least 9 GB that iPadOS is not using, with <a href="https://github.com/OrchardLinux/resize-apfs" target="_blank">Resize APFS</a>, then run <code>orchard install omarchy-a</code> from DFU. The other devices are brought up from the Orchard repo.</p>
+					<p class="release-limit">On the iPad 6, Linux lives on its own partition beside iPadOS. A restart still needs a computer: put the iPad in DFU and run <code>orchard launch</code>. The desktop signs in as <code>tablet</code>. You choose a sudo password and a 6-digit lock PIN during install. There is no disk encryption, and the boot exploit gives anyone holding the device full access. Use a spare iPad.</p>
 					<details>
 						<summary>Working</summary>
 						<ul>
-							<li>Linux 6.12 and Alpine Linux 3.24</li>
-							<li>Both CPU cores</li>
-							<li>Multi-touch, and an XFCE desktop with an on-screen keyboard</li>
-							<li>Wi-Fi on 2.4 and 5 GHz</li>
-							<li>SSH, and installing packages with <code>apk</code></li>
-							<li>Read-only access to iOS system files</li>
+							<li>On the iPad 6 Wi-Fi: Omarchy A, a touch desktop on Arch Linux ARM</li>
+							<li>Multitouch, swipes, hardware buttons, and an on-screen keyboard</li>
+							<li>Wi-Fi and Bluetooth</li>
+							<li>A boot partition and a Linux system on the internal storage, beside iPadOS</li>
+							<li>Battery level, backlight, and charging. Apple chargers can supply up to 2.4 A; a computer or many USB-A chargers stay at 500 mA</li>
+							<li>One DFU session downloads the release, writes it, and starts the desktop</li>
+							<li>On the iPad Air 2 Wi-Fi, experimental, in Orchard: a RAM boot with display, Wi-Fi, battery level, backlight, and buttons</li>
+							<li>On the iPhone 6, experimental, in Orchard: a tethered RAM boot to a console, with touch</li>
 						</ul>
 					</details>
 					<details>
 						<summary>Shortcomings</summary>
 						<ul>
-							<li>It can't boot by itself. Each boot is started from jailbroken iOS or a Raspberry Pi Pico.</li>
-							<li>No graphics acceleration, so the desktop is drawn by the CPU.</li>
-							<li>USB accessories such as flash drives and keyboards don't work.</li>
-							<li>Wi-Fi has only been tested on open networks, not password-protected ones.</li>
-							<li>Your iOS data, such as photos and apps, can't be read.</li>
-							<li>Only the Wi-Fi iPad mini 1 is supported. Newer chips are planned.</li>
+							<li>Every cold start needs a computer and DFU mode.</li>
+							<li>No GPU acceleration, so the desktop is drawn in software.</li>
+							<li>Speakers, the microphone, the cameras, and suspend are missing.</li>
+							<li>Omarchy A installs on the iPad 6 Wi-Fi model. iPad 5, iPad 7, and iPad Air 2 are experimental hardware support in Orchard. The iPad Air 2 and the Samsung iPad 5 boot from RAM. The iPad 7 is mostly untested.</li>
+							<li>The iPhone 6 boots from RAM. Wi-Fi, Bluetooth, and installing onto its storage are still open.</li>
+							<li>iPhone 7 and 7 Plus have device profiles in Orchard, and they have not been tested on hardware.</li>
 						</ul>
 					</details>
 					<details>
 						<summary>Built on</summary>
-						<p class="release-credits">Built on <a href="https://github.com/teutekeune/iBSSloader">iBSSloader</a> by teutekeune, <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy iOS Kit</a> and <a href="https://github.com/LukeZGD/EverPwnage">EverPwnage</a> by LukeZGD, <a href="https://github.com/NyanSatan/checkm8_bootkit">checkm8_bootkit</a> by NyanSatan, <a href="https://github.com/iH8sn0w/iBoot32Patcher">iBoot32Patcher</a> by iH8sn0w, and the Z2 touch work from <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>.</p>
+						<p class="release-credits">Built on <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/palera1n/palera1n">palera1n</a> and <a href="https://github.com/checkra1n/PongoOS">PongoOS</a>, <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a>, and <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. iPad 7 touch work by Pauli1Go. iPad Air 2 support comes from <a href="https://github.com/mattonik/ipad-nixos">Martin Puškáč's port</a>, brought over by micro23. iPad 5 support comes from <a href="https://github.com/brkosebay/omarchy-ipad5">Berkay Kösebay</a>.</p>
 					</details>
-				</article>
+					</div>
+				</details>
+				<details class="release-card bg-light" data-status="active">
+					<summary>
+						<header class="release-header">
+							<div>
+								<h3 class="mb-1">Project Cascadia</h3>
+								<p class="mb-0">by <a href="https://github.com/rzxvx">rzxvx</a> · Updated October 2026</p>
+							</div>
+							<span class="release-chevron" aria-hidden="true"></span>
+						</header>
+						<ul class="pill-row device-preview"></ul>
+						<ul class="pill-row feature-pills">
+							<li class="pill-limit">Not installable</li>
+							<li class="pill-yes">GPU desktop</li>
+							<li class="pill-yes">Touch</li>
+							<li class="pill-yes">Wi-Fi</li>
+							<li class="pill-yes">Bluetooth</li>
+							<li class="pill-yes">Speakers</li>
+						</ul>
+					</summary>
+					<div class="release-body">
+					<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia" target="_blank">View on GitHub</a>
+					<p>Runs Linux and Alpine on the original iPad mini, with a GPU-drawn touch desktop, Wi-Fi, and Bluetooth. An experimental build also boots Linux to a shell on the iPhone 11.</p>
+					<ul class="device-list">
+						<li class="device-plain" data-device="ipad-mini-1" data-device-label="iPad mini (1st gen)" data-processor="a5" data-processor-label="Apple A5">
+							<span>iPad mini (1st gen) · Apple A5</span>
+						</li>
+						<li class="device-plain" data-device="iphone-11" data-device-label="iPhone 11" data-processor="a13" data-processor-label="Apple A13">
+							<span>iPhone 11 · Apple A13 · experimental</span>
+						</li>
+					</ul>
+					<p class="release-needs"><strong>What you need:</strong> for the iPad mini, that Wi-Fi model, a Mac or Linux computer, and either jailbroken iOS or a Raspberry Pi Pico. The iPhone 11 build needs that phone, a computer, and a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board.</p>
+					<p class="release-limit">iOS stays installed. Linux isn't written to the device's storage; its files live on a connected computer, where what you install survives a reboot, or in memory for a single boot. Putting Linux on the iPad itself is still on the <a href="https://github.com/rzxvx/Project-Cascadia#roadmap" target="_blank">roadmap</a>, and that removes iOS.</p>
+					<details>
+						<summary>Working</summary>
+						<ul>
+							<li>On the iPad mini: Linux 6.12 and Alpine Linux 3.24</li>
+							<li>Both CPU cores</li>
+							<li>Multi-touch, and an XFCE desktop drawn by the GPU, with an on-screen keyboard</li>
+							<li>Wi-Fi on 2.4 and 5 GHz, including password-protected networks</li>
+							<li>Bluetooth, including a keyboard</li>
+							<li>Speakers, the battery level, and charging over the cable</li>
+							<li>Volume and brightness buttons, the side switch, and the screen turning with the iPad</li>
+							<li>SSH, and installing packages with <code>apk</code></li>
+							<li>Read-only access to iOS system files</li>
+							<li>On the iPhone 11, experimental: Linux 7.2 boots to a shell on the screen and over USB, with SSH. Alpine's files live on a connected computer, and all six cores run.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>Shortcomings</summary>
+						<ul>
+							<li>It can't boot by itself. The iPad mini starts from jailbroken iOS or a Raspberry Pi Pico, and the iPhone 11 needs a usbliter8 board.</li>
+							<li>USB accessories such as flash drives and USB keyboards don't work.</li>
+							<li>Your iOS data, such as photos and apps, can't be read.</li>
+							<li>The iPhone 11 build has no touch, Wi-Fi, Bluetooth, audio, or desktop.</li>
+							<li>No other iPad model boots yet.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>Built on</summary>
+						<p class="release-credits">Built on <a href="https://github.com/teutekeune/iBSSloader">iBSSloader</a> by teutekeune, <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy iOS Kit</a> and <a href="https://github.com/LukeZGD/EverPwnage">EverPwnage</a> by LukeZGD, <a href="https://github.com/NyanSatan/checkm8_bootkit">checkm8_bootkit</a> by NyanSatan, <a href="https://github.com/iH8sn0w/iBoot32Patcher">iBoot32Patcher</a> by iH8sn0w, and the Z2 touch work from <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. The iPhone 11 port is built on <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a> and <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, and boots with <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a>.</p>
+					</details>
+					</div>
+				</details>
 			</div>
 		</div>
 		</section>
@@ -332,6 +425,10 @@
 					</a>
 					<a class="github-button" href="https://github.com/kevdoy/ipadlinux.org-site/subscription" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Watch kevdoy/ipadlinux.org-site on GitHub">Watch</a>
 				</span>
+				<a class="person" href="https://github.com/henrikklee" target="_blank">
+					<img src="https://github.com/henrikklee.png" alt="">
+					<span><strong>Henrik Klee</strong><span>Omarchy A</span></span>
+				</a>
 				<a class="person" href="https://github.com/rzxvx" target="_blank">
 					<img src="https://github.com/rzxvx.png" alt="">
 					<span><strong>rzxvx</strong><span>Project Cascadia</span></span>
@@ -383,6 +480,38 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
+					<a href="https://x.com/henrikklee/status/2114409814445195551" target="_blank"
+						class="text-decoration-none link-black">
+						<div class="card">
+							<img class="img-fluid" src="img/102526-article-henrikklee.jpg" alt="">
+							<div class="card-body">
+								<p class="card-text">
+									<small>October 25, 2026</small>
+								</p>
+								<h4><strong>How Henrik Klee brought Linux to iPad</strong></h4>
+								<p>Henrik Klee on building Omarchy A, a bootable Arch Linux ARM desktop, for an iPad 6. Touch, Wi-Fi, Bluetooth, and a Linux partition beside iPadOS are working. The installer goes from DFU to the desktop in one boot.</p>
+								<div class="btn btn-dark">Read on 𝕏</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
+					<a href="https://github.com/rzxvx/Project-Cascadia" target="_blank"
+						class="text-decoration-none link-black">
+						<div class="card">
+							<img class="img-fluid card-img-contain" src="img/ipad-mini-1.png" alt="">
+							<div class="card-body">
+								<p class="card-text">
+									<small>October 2026</small>
+								</p>
+								<h4><strong>Project Cascadia's iPad mini desktop now runs on the GPU</strong></h4>
+								<p>XFCE is drawn by the GPU. Wi-Fi joins password-protected networks, and Bluetooth, speakers, and the battery gauge work. An experimental iPhone 11 build boots Linux 7.2 to a shell.</p>
+								<div class="btn btn-dark">Read on GitHub</div>
+							</div>
+						</div>
+					</a>
+				</div>
 				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
 					<a href="https://github.com/rzxvx/Project-Cascadia" target="_blank"
 						class="text-decoration-none link-black">
@@ -665,6 +794,31 @@
 				if (empty) empty.hidden = visible !== 0;
 				reset.hidden = deviceSelect.value === "" && processorSelect.value === "" && status === "all";
 			}
+
+			cards.forEach(function (card) {
+				var preview = card.querySelector(".device-preview");
+				var devices = card.querySelectorAll(".device-list li");
+				if (!preview || !devices.length) return;
+				var shown = Math.min(devices.length, 4);
+				for (var i = 0; i < shown; i++) {
+					var pill = document.createElement("li");
+					pill.textContent = devices[i].getAttribute("data-device-label") || devices[i].textContent.trim();
+					preview.appendChild(pill);
+				}
+				if (devices.length > 4) {
+					var more = document.createElement("li");
+					more.className = "pill-more";
+					more.textContent = "+" + (devices.length - 4) + " more";
+					preview.appendChild(more);
+				}
+				Array.prototype.forEach.call(card.querySelectorAll("summary a"), function (link) {
+					link.addEventListener("click", function (event) {
+						event.preventDefault();
+						event.stopPropagation();
+						window.open(link.href, link.getAttribute("target") || "_self");
+					});
+				});
+			});
 
 			addOptions(deviceSelect, "data-device", "data-device-label");
 			addOptions(processorSelect, "data-processor", "data-processor-label");
