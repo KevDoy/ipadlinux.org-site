@@ -583,6 +583,7 @@ a, a:hover {
     padding: 0.05em 0.35em;
     border-radius: 6px;
     font-size: 0.9em;
+    overflow-wrap: anywhere;
 }
 
 .resource-group {

@@ -109,7 +109,7 @@
 						<header class="release-header">
 							<div>
 								<h3 class="mb-1">Omarchy A</h3>
-								<p class="mb-0">by <a href="https://github.com/henrikklee">Henrik Klee</a>, <a href="https://github.com/OrchardLinux">OrchardLinux</a> · Updated October 2026</p>
+								<p class="mb-0">by <a href="https://github.com/henrikklee">Henrik Klee</a>, <a href="https://github.com/OrchardLinux">OrchardLinux</a> · Updated November 2026</p>
 							</div>
 							<span class="release-chevron" aria-hidden="true"></span>
 						</header>
@@ -119,62 +119,83 @@
 							<li class="pill-yes">Touch</li>
 							<li class="pill-yes">Wi-Fi</li>
 							<li class="pill-yes">Bluetooth</li>
+							<li class="pill-yes">Speakers</li>
+							<li class="pill-yes">GPU desktop (iPad 6, 7)</li>
 							<li class="pill-limit">Tethered boot</li>
-							<li class="pill-limit">No GPU</li>
 						</ul>
 					</summary>
 					<div class="release-body">
 					<div class="release-actions">
 						<a class="btn btn-dark" href="https://github.com/OrchardLinux/omarchy-a" target="_blank">View on GitHub</a>
+						<a class="btn btn-dark" href="https://github.com/OrchardLinux/omarchy-a/releases/tag/v0.3.2" target="_blank">v0.3.2</a>
 						<a class="btn btn-dark" href="https://github.com/OrchardLinux/orchard" target="_blank">Orchard</a>
 					</div>
-					<p>A bootable Arch Linux ARM desktop for the iPad, with Omarchy's look adapted for touch. On the iPad 6 Wi-Fi model it installs onto the tablet's storage, beside iPadOS. <a href="https://github.com/OrchardLinux/orchard">Orchard</a> is the hardware support, kernel patches, and the tool that builds, boots, and installs it. iPad 5, iPad 7, iPad Air 2, and iPhone 6 support is in Orchard and still experimental.</p>
+					<p>A bootable Arch Linux ARM desktop for the iPad, with Omarchy's look adapted for touch. The current release is <a href="https://github.com/OrchardLinux/omarchy-a/releases/tag/v0.3.2">v0.3.2</a> (November 18, 2026). The iPad 6 Wi-Fi model is the supported install: Omarchy A goes on the tablet's storage, beside iPadOS, and the desktop is drawn by the GPU. <a href="https://github.com/OrchardLinux/orchard">Orchard</a> is the hardware support, kernel patches, and the tool that builds, boots, and installs it. The iPad 7 Wi-Fi, both iPad 5 Wi-Fi boards, the iPad Air 2, and the iPhone 6 are experimental support in Orchard.</p>
 					<ul class="device-list">
 						<li class="device-plain" data-device="ipad-6" data-device-label="iPad (6th gen)" data-processor="a10" data-processor-label="Apple A10">
-							<span>iPad (6th gen, Wi-Fi) · Apple A10</span>
-						</li>
-						<li class="device-plain" data-device="ipad-5" data-device-label="iPad (5th gen)" data-processor="a9" data-processor-label="Apple A9">
-							<span>iPad (5th gen) · Apple A9 · experimental</span>
+							<span>iPad (6th gen, Wi-Fi, J71b) · Apple A10 · supported</span>
 						</li>
 						<li class="device-plain" data-device="ipad-7" data-device-label="iPad (7th gen)" data-processor="a10" data-processor-label="Apple A10">
-							<span>iPad (7th gen) · Apple A10 · experimental</span>
+							<span>iPad (7th gen, Wi-Fi, J171) · Apple A10 · experimental</span>
+						</li>
+						<li class="device-plain" data-device="ipad-5-tsmc" data-device-label="iPad (5th gen, TSMC)" data-processor="a9" data-processor-label="Apple A9">
+							<span>iPad (5th gen, Wi-Fi, TSMC, J71t) · Apple A9 · experimental</span>
+						</li>
+						<li class="device-plain" data-device="ipad-5-samsung" data-device-label="iPad (5th gen, Samsung)" data-processor="a9" data-processor-label="Apple A9">
+							<span>iPad (5th gen, Wi-Fi, Samsung, J71s) · Apple A9 · experimental, RAM boot</span>
 						</li>
 						<li class="device-plain" data-device="ipad-air-2" data-device-label="iPad Air 2" data-processor="a8x" data-processor-label="Apple A8X">
-							<span>iPad Air 2 · Apple A8X · experimental</span>
+							<span>iPad Air 2 (Wi-Fi) · Apple A8X · experimental</span>
 						</li>
 						<li class="device-plain" data-device="iphone-6" data-device-label="iPhone 6" data-processor="a8" data-processor-label="Apple A8">
 							<span>iPhone 6 · Apple A8 · experimental</span>
 						</li>
 					</ul>
-					<p class="release-needs"><strong>What you need:</strong> for Omarchy A, the iPad 6 Wi-Fi model on iPadOS 16 or later, a Mac or Linux computer, and a USB data cable. Free at least 9 GB that iPadOS is not using, with <a href="https://github.com/OrchardLinux/resize-apfs" target="_blank">Resize APFS</a>, then run <code>orchard install omarchy-a</code> from DFU. The other devices are brought up from the Orchard repo.</p>
-					<p class="release-limit">On the iPad 6, Linux lives on its own partition beside iPadOS. A restart still needs a computer: put the iPad in DFU and run <code>orchard launch</code>. The desktop signs in as <code>tablet</code>. You choose a sudo password and a 6-digit lock PIN during install. There is no disk encryption, and the boot exploit gives anyone holding the device full access. Use a spare iPad.</p>
+					<p class="release-needs"><strong>What you need:</strong> for the supported install, the iPad 6 Wi-Fi model on iPadOS 16 or later, a Mac or Linux computer, and a USB data cable. Free at least 9 GB that iPadOS is not using, with <a href="https://github.com/OrchardLinux/resize-apfs" target="_blank">Resize APFS</a>. Put the iPad in DFU and run:</p>
+					<p><code>curl -fsSL https://github.com/OrchardLinux/omarchy-a/releases/latest/download/install.sh | sh</code></p>
+					<p>That installs the latest release, which is v0.3.2. On a tablet already running v0.3.2 or later, <code>omarchy-update</code> (or Update &gt; Omarchy) brings in the next release without reinstalling. An install from the previous installer, one Linux partition and no boot partition, cannot be converted; the installer says so before it erases that partition. The same installer can target an experimental board when Orchard marks it installable, and it shows that status before it writes anything.</p>
+					<p class="release-limit">On the iPad 6, Linux lives on its own partition beside iPadOS. A cold start still needs a computer: put the iPad in DFU and run <code>orchard launch</code>. Sleep and wake do not start Linux on their own. The desktop signs in as <code>tablet</code>. You choose a sudo password and a 6-digit lock PIN during install. There is no disk encryption, and the boot exploit gives anyone holding the device full access. Use a spare iPad.</p>
 					<details>
-						<summary>Working</summary>
+						<summary>Working on the iPad 6 Wi-Fi</summary>
+						<p>Maintainer-supported. This is the only supported device (<code>iPad7,5</code>, J71b).</p>
 						<ul>
-							<li>On the iPad 6 Wi-Fi: Omarchy A, a touch desktop on Arch Linux ARM</li>
+							<li>Omarchy A, a touch desktop on Arch Linux ARM, drawn by the GPU</li>
 							<li>Multitouch, swipes, hardware buttons, and an on-screen keyboard</li>
-							<li>Wi-Fi and Bluetooth</li>
+							<li>Wi-Fi, Bluetooth, and Bluetooth audio</li>
+							<li>Speakers, the built-in microphone, and the headphone jack</li>
+							<li>The screen rotates with the iPad</li>
+							<li>Suspend and resume</li>
+							<li>Firefox plays H.264 video, including YouTube, through the hardware decoder</li>
 							<li>A boot partition and a Linux system on the internal storage, beside iPadOS</li>
-							<li>Battery level, backlight, and charging. Apple chargers can supply up to 2.4 A; a computer or many USB-A chargers stay at 500 mA</li>
+							<li>Battery level, backlight, and charging</li>
 							<li>One DFU session downloads the release, writes it, and starts the desktop</li>
-							<li>On the iPad Air 2 Wi-Fi, experimental, in Orchard: a RAM boot with display, Wi-Fi, battery level, backlight, and buttons</li>
-							<li>On the iPhone 6, experimental, in Orchard: a tethered RAM boot to a console, with touch</li>
+						</ul>
+					</details>
+					<details>
+						<summary>Experimental</summary>
+						<p>In Orchard, and not the supported Omarchy A install. Feature reports below are Orchard's; the iPad 6 Wi-Fi line above is the maintainer-supported release.</p>
+						<ul>
+							<li>iPad 7 Wi-Fi (J171) can be installed. Orchard v0.3.2 marks the GPU desktop, sleep, hardware video, and Bluetooth audio working end to end. Speakers, the microphone, and the headphone jack work. The cameras are missing.</li>
+							<li>iPad 5 Wi-Fi, TSMC (J71t) can be installed. Orchard marks its GPU driver ready for testing, in the same driver as the iPad 6 and 7. That is not a finished GPU desktop.</li>
+							<li>iPad 5 Wi-Fi, Samsung (J71s) still boots from RAM and is mostly untested.</li>
+							<li>iPad Air 2 Wi-Fi: a RAM boot with display, touch, Wi-Fi, battery level, backlight, and buttons. Linux does not go on its storage.</li>
+							<li>iPhone 6: a tethered RAM boot to a console, with touch. Wi-Fi, Bluetooth, and installing onto its storage are still open.</li>
+							<li>iPhone 7 and 7 Plus have device profiles in Orchard. They have not been qualified on hardware.</li>
+							<li>Orchard bring-up only: iPad mini 4 Wi-Fi, RAM only (Tom Ballard), and iPhone X GSM (Eduardo Martins).</li>
 						</ul>
 					</details>
 					<details>
 						<summary>Shortcomings</summary>
 						<ul>
-							<li>Every cold start needs a computer and DFU mode.</li>
-							<li>No GPU acceleration, so the desktop is drawn in software.</li>
-							<li>Speakers, the microphone, the cameras, and suspend are missing.</li>
-							<li>Omarchy A installs on the iPad 6 Wi-Fi model. iPad 5, iPad 7, and iPad Air 2 are experimental hardware support in Orchard. The iPad Air 2 and the Samsung iPad 5 boot from RAM. The iPad 7 is mostly untested.</li>
-							<li>The iPhone 6 boots from RAM. Wi-Fi, Bluetooth, and installing onto its storage are still open.</li>
-							<li>iPhone 7 and 7 Plus have device profiles in Orchard, and they have not been tested on hardware.</li>
+							<li>Every cold start needs a computer and DFU mode. Sleep and wake do not boot the iPad on their own.</li>
+							<li>The cameras are missing.</li>
+							<li>There is no disk encryption.</li>
+							<li>On the iPad 6 and 7, Firefox reaches the hardware decoder only with its media-decoding sandbox off (<code>MOZ_DISABLE_RDD_SANDBOX=1</code>), which the login session sets. A video that exploits a decoder bug is not contained by that sandbox. The sandbox around web pages stays on.</li>
 						</ul>
 					</details>
 					<details>
 						<summary>Built on</summary>
-						<p class="release-credits">Built on <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/palera1n/palera1n">palera1n</a> and <a href="https://github.com/checkra1n/PongoOS">PongoOS</a>, <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a>, and <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. iPad 7 touch work by Pauli1Go. iPad Air 2 support comes from <a href="https://github.com/mattonik/ipad-nixos">Martin Puškáč's port</a>, brought over by micro23. iPad 5 support comes from <a href="https://github.com/brkosebay/omarchy-ipad5">Berkay Kösebay</a>.</p>
+						<p class="release-credits">Built on <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/palera1n/palera1n">palera1n</a> and <a href="https://github.com/checkra1n/PongoOS">PongoOS</a>, <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a>, and <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. iPad 7 touch work by Pauli1Go. iPad 6 speakers and rotation work by Dalton Alexandre. iPad 7 speakers by Duke Eagleman. iPad Air 2 support comes from <a href="https://github.com/mattonik/ipad-nixos">Martin Puškáč's port</a>, brought over by micro23. iPad 5 support comes from <a href="https://github.com/brkosebay/omarchy-ipad5">Berkay Kösebay</a>. iPad mini 4 Wi-Fi bring-up by Tom Ballard. iPhone X GSM bring-up by Eduardo Martins.</p>
 					</details>
 					</div>
 				</details>
@@ -623,6 +644,20 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
+					<div class="card">
+						<img class="img-fluid" src="img/102526-article-henrikklee.jpg" alt="">
+						<div class="card-body">
+							<p class="card-text">
+								<small>November 2026</small>
+							</p>
+							<h4><strong>Omarchy A now draws the iPad 6 and 7 desktop on the GPU</strong></h4>
+							<p>The iPad 6 and 7 draw the desktop on the GPU. Firefox plays YouTube through the hardware decoder, and the speakers, microphone, and sleep work on those iPads. The iPad 6 Wi-Fi model is still the supported install. A computer is still needed to start Linux.</p>
+							<a class="btn btn-dark mr-2 mb-2" href="https://github.com/OrchardLinux/omarchy-a/releases/tag/v0.3.2" target="_blank">v0.3.2 release</a>
+							<a class="btn btn-dark mb-2" href="https://github.com/OrchardLinux/omarchy-a" target="_blank">Repository</a>
+						</div>
+					</div>
+				</div>
 				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
 					<a href="https://github.com/rzxvx/Project-Cascadia" target="_blank"
 						class="text-decoration-none link-black">
