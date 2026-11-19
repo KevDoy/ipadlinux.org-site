@@ -183,13 +183,14 @@
 						<header class="release-header">
 							<div>
 								<h3 class="mb-1">Project Cascadia</h3>
-								<p class="mb-0">by <a href="https://github.com/rzxvx">rzxvx</a> · Updated October 2026</p>
+								<p class="mb-0">by <a href="https://github.com/rzxvx">rzxvx</a> · Updated November 2026</p>
 							</div>
 							<span class="release-chevron" aria-hidden="true"></span>
 						</header>
 						<ul class="pill-row device-preview"></ul>
 						<ul class="pill-row feature-pills">
-							<li class="pill-limit">Not installable</li>
+							<li class="pill-yes">Installs beside iOS</li>
+							<li class="pill-yes">Boots alone (mini 1)</li>
 							<li class="pill-yes">GPU desktop</li>
 							<li class="pill-yes">Touch</li>
 							<li class="pill-yes">Wi-Fi</li>
@@ -198,46 +199,158 @@
 						</ul>
 					</summary>
 					<div class="release-body">
-					<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia" target="_blank">View on GitHub</a>
-					<p>Runs Linux and Alpine on the original iPad mini, with a GPU-drawn touch desktop, Wi-Fi, and Bluetooth. An experimental build also boots Linux to a shell on the iPhone 11.</p>
+					<div class="release-actions">
+						<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia" target="_blank">View on GitHub</a>
+						<a class="btn btn-dark" href="https://github.com/rzxvx/Project-Cascadia/releases" target="_blank">Releases</a>
+					</div>
+					<p>Linux on Apple's own chips. On the Wi-Fi iPad mini 1, Alpine and a GPU desktop live on the iPad's flash beside iOS, and an app on the home screen starts Linux with no computer. The iPhone 11 runs a touch desktop and still needs a computer to boot. The iPad 2 is an experimental port from the same maintainer. The iPhone XR, iPad 8, and iPhone XS Max are contributed reports; the maintainer has not tested those three. Prebuilt releases are the iPad mini 1 only.</p>
 					<ul class="device-list">
 						<li class="device-plain" data-device="ipad-mini-1" data-device-label="iPad mini (1st gen)" data-processor="a5" data-processor-label="Apple A5">
-							<span>iPad mini (1st gen) · Apple A5</span>
+							<span>iPad mini (1st gen, Wi-Fi, iPad2,5) · Apple A5</span>
+						</li>
+						<li class="device-plain" data-device="ipad-2" data-device-label="iPad 2" data-processor="a5" data-processor-label="Apple A5">
+							<span>iPad 2 (Wi-Fi) · Apple A5 · experimental</span>
 						</li>
 						<li class="device-plain" data-device="iphone-11" data-device-label="iPhone 11" data-processor="a13" data-processor-label="Apple A13">
-							<span>iPhone 11 · Apple A13 · experimental</span>
+							<span>iPhone 11 · Apple A13 · tethered</span>
+						</li>
+						<li class="device-plain" data-device="iphone-xr" data-device-label="iPhone XR" data-processor="a12" data-processor-label="Apple A12">
+							<span>iPhone XR · Apple A12 · experimental, contributed</span>
+						</li>
+						<li class="device-plain" data-device="ipad-8" data-device-label="iPad (8th gen)" data-processor="a12" data-processor-label="Apple A12">
+							<span>iPad (8th gen, Wi-Fi) · Apple A12 · experimental, contributed</span>
+						</li>
+						<li class="device-plain" data-device="iphone-xs-max" data-device-label="iPhone XS Max" data-processor="a12" data-processor-label="Apple A12">
+							<span>iPhone XS Max · Apple A12 · contributed, not tested by the maintainer</span>
 						</li>
 					</ul>
-					<p class="release-needs"><strong>What you need:</strong> for the iPad mini, that Wi-Fi model, a Mac or Linux computer, and either jailbroken iOS or a Raspberry Pi Pico. The iPhone 11 build needs that phone, a computer, and a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board.</p>
-					<p class="release-limit">iOS stays installed. Linux isn't written to the device's storage; its files live on a connected computer, where what you install survives a reboot, or in memory for a single boot. Putting Linux on the iPad itself is still on the <a href="https://github.com/rzxvx/Project-Cascadia#roadmap" target="_blank">roadmap</a>, and that removes iOS.</p>
-					<details>
-						<summary>Working</summary>
+					<div class="release-limit">
+						<strong>Before you install</strong>
 						<ul>
-							<li>On the iPad mini: Linux 6.12 and Alpine Linux 3.24</li>
+							<li>The install is for the Wi-Fi iPad mini 1 (iPad2,5). The cellular models, iPad2,6 and iPad2,7, are not supported.</li>
+							<li>iOS 8.4.1 (12H321) only. The installer and the app refuse any other version.</li>
+							<li>Going back from a jailbroken iOS 9 with <a href="https://github.com/LukeZGD/Legacy-iOS-Kit" target="_blank">Legacy iOS Kit</a> wipes the iPad.</li>
+							<li>The install needs a jailbreak with OpenSSH, and a Mac or Linux computer with Docker.</li>
+							<li>It shrinks iOS's Data partition (8 GB by default, 4 GB at least) and rewrites the partition table. Back the iPad up first.</li>
+							<li>Uninstalling gives that space back to iOS and removes the app.</li>
+							<li>On the iPhone 11, giving the internal storage to Linux erases iOS.</li>
+							<li>This is experimental low-level work, and it can damage the hardware.</li>
+						</ul>
+					</div>
+					<details>
+						<summary>iPad mini 1 (Wi-Fi) · maintainer-tested</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPad mini 1 Wi-Fi (iPad2,5 / A1432) on iOS 8.4.1 (12H321), jailbroken, with OpenSSH, a Lightning cable, and a Mac or Linux computer with Docker. <code>./cascadia a5 install</code> uses the prebuilt kernel, desktop, and iOS app from <a href="https://github.com/rzxvx/Project-Cascadia/releases" target="_blank">Releases</a>. A Raspberry Pi Pico is the other way in, for a root that stays on the computer.</p>
+						<p><strong>Working</strong></p>
+						<ul>
+							<li>Linux 6.12 and Alpine Linux 3.24 on the iPad's own flash, beside iOS</li>
+							<li>The Cascadia app starts Linux with no computer and no cable. Rebooting Linux, or holding power and Home, returns to iOS</li>
 							<li>Both CPU cores</li>
-							<li>Multi-touch, and an XFCE desktop drawn by the GPU, with an on-screen keyboard</li>
+							<li>Multi-touch, and a labwc Wayland desktop drawn by the GPU, with an on-screen keyboard</li>
 							<li>Wi-Fi on 2.4 and 5 GHz, including password-protected networks</li>
 							<li>Bluetooth, including a keyboard</li>
 							<li>Speakers, the battery level, and charging over the cable</li>
 							<li>Volume and brightness buttons, the side switch, and the screen turning with the iPad</li>
 							<li>SSH, and installing packages with <code>apk</code></li>
-							<li>Read-only access to iOS system files</li>
-							<li>On the iPhone 11, experimental: Linux 7.2 boots to a shell on the screen and over USB, with SSH. Alpine's files live on a connected computer, and all six cores run.</li>
+							<li>Read-only access to iOS's System partition</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>USB flash drives and USB keyboards do not work.</li>
+							<li>iOS photos and apps stay encrypted.</li>
+							<li>The headphone jack and the microphones are not brought up.</li>
+							<li>Writes to the iPad's flash are about 8 MB/s, with no write cache yet.</li>
 						</ul>
 					</details>
 					<details>
-						<summary>Shortcomings</summary>
+						<summary>iPad 2 (Wi-Fi) · experimental, maintainer-tested</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPad 2 Wi-Fi (iPad2,1 / A1395) with a jailbreak, and a Mac or Linux computer. The commands are <code>./cascadia k93</code>. No extra board, and no prebuilt release.</p>
+						<p><strong>Working</strong></p>
 						<ul>
-							<li>It can't boot by itself. The iPad mini starts from jailbroken iOS or a Raspberry Pi Pico, and the iPhone 11 needs a usbliter8 board.</li>
-							<li>USB accessories such as flash drives and USB keyboards don't work.</li>
-							<li>Your iOS data, such as photos and apps, can't be read.</li>
-							<li>The iPhone 11 build has no touch, Wi-Fi, Bluetooth, audio, or desktop.</li>
-							<li>No other iPad model boots yet.</li>
+							<li>Tested by the maintainer on one iPad 2, on jailbroken iOS 6.1.3: Linux 6.12, both cores</li>
+							<li>It starts from that iOS with no computer. The root is in memory, or on a computer over the cable. iOS stays installed</li>
+							<li>Touch, Wi-Fi, and Bluetooth. Bluetooth here is classic, and pairing was not tried on this iPad</li>
+							<li>The speaker, headphones, the built-in microphone, a headset microphone, and both cameras</li>
+							<li>Volume buttons, the battery, charging, and the screen turning with the iPad</li>
+							<li>A GPU desktop (XFCE) when the root is on a computer</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>Experimental. Linux is not stored on this iPad's flash yet.</li>
+							<li>A USB adapter in the 30-pin dock is not supported.</li>
+							<li><a href="https://github.com/albertogferrario" target="_blank">albertogferrario</a> ran it on a second iPad 2, on iOS 8.4.1, and reported touch, Bluetooth, Wi-Fi scans, the camera devices, and XFCE over the cable. That report is theirs.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>iPhone 11 · maintainer-tested, tethered</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPhone 11 (iPhone12,1), a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board, a Mac or Linux computer with Docker, and a real firmware ticket (an IM4M) for that phone. There is no prebuilt release for it.</p>
+						<p><strong>Working</strong></p>
+						<ul>
+							<li>Linux 7.2, all six cores, tested by the maintainer</li>
+							<li>A framebuffer console, USB networking, and SSH</li>
+							<li>Multi-touch, and an XFCE desktop drawn on that framebuffer</li>
+							<li>Wi-Fi and Bluetooth</li>
+							<li>After it is running, the cable can come off and SSH works over Wi-Fi</li>
+							<li>The internal storage can be Linux's disk. Choosing that erases iOS</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>Every start needs the usbliter8 board and a computer.</li>
+							<li>No GPU, no native display, no audio, and no CPU frequency scaling.</li>
+							<li>Leaving iOS in place means Linux's files do not stay on the phone.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>iPhone XR · experimental, contributed</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPhone XR (iPhone11,8), a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board, a computer, and that phone's own firmware ticket and SysCfg calibration. No prebuilt release.</p>
+						<p><strong>Working</strong></p>
+						<ul>
+							<li>Reported by its author, dr1408, and not built or tested by the maintainer: Linux 7.3</li>
+							<li>A framebuffer, touch, USB networking, and SSH</li>
+							<li>Wi-Fi and Bluetooth over the chip's serial port</li>
+							<li>Debian with XFCE, served from a computer over the cable</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>Experimental, and tethered. The root stays on the computer.</li>
+							<li>The procedure does not write the phone's internal storage.</li>
+							<li>The maintainer describes these as contributor reports, not a supported release.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>iPad 8 (Wi-Fi) · experimental, contributed</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPad 8 Wi-Fi (iPad11,6 / A2270), a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board, a computer, and that iPad's own firmware ticket and SysCfg calibration. No prebuilt release.</p>
+						<p><strong>Working</strong></p>
+						<ul>
+							<li>Contributor-tested, and not tested by the maintainer: Linux 7.3</li>
+							<li>The iPad's own display and brightness, touch, USB networking, and SSH</li>
+							<li>Wi-Fi and Bluetooth over the chip's serial port</li>
+							<li>A GPU-drawn Omarchy desktop, served from a computer over the cable</li>
+							<li>The contributor also reports the internal speakers and the volume buttons</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>Experimental, and tethered. The root stays on the computer.</li>
+							<li>The procedure does not write the iPad's internal storage.</li>
+							<li>The microphone, the headphone jack, and a full brightness range are still open. A fix for long GPU sessions still needs another test on the hardware.</li>
+						</ul>
+					</details>
+					<details>
+						<summary>iPhone XS Max · contributed, not tested by the maintainer</summary>
+						<p class="release-needs"><strong>What you need:</strong> an iPhone XS Max (iPhone11,6), a <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a> board, and a computer. The Cascadia profile was contributed by kieroid. No prebuilt release.</p>
+						<p><strong>Working</strong></p>
+						<ul>
+							<li>kieroid reports Linux 7.3 with all six cores, a display, touch, USB networking, Wi-Fi, and Bluetooth</li>
+							<li>The same report includes a GPU render node coming up</li>
+						</ul>
+						<p><strong>Shortcomings</strong></p>
+						<ul>
+							<li>The maintainer has not tested this profile on hardware.</li>
+							<li>Tethered. Storage, CPU frequency scaling, and the broader GPU results are reported separately by <a href="https://forgejo.toe.quest/kiki/badapple" target="_blank">badapple</a>, not as results of this profile.</li>
 						</ul>
 					</details>
 					<details>
 						<summary>Built on</summary>
-						<p class="release-credits">Built on <a href="https://github.com/teutekeune/iBSSloader">iBSSloader</a> by teutekeune, <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy iOS Kit</a> and <a href="https://github.com/LukeZGD/EverPwnage">EverPwnage</a> by LukeZGD, <a href="https://github.com/NyanSatan/checkm8_bootkit">checkm8_bootkit</a> by NyanSatan, <a href="https://github.com/iH8sn0w/iBoot32Patcher">iBoot32Patcher</a> by iH8sn0w, and the Z2 touch work from <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. The iPhone 11 port is built on <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a> and <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, and boots with <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a>.</p>
+						<p class="release-credits">Built on <a href="https://github.com/teutekeune/iBSSloader">iBSSloader</a> by teutekeune, <a href="https://github.com/axi0mX/ipwndfu">checkm8</a> by axi0mX, <a href="https://github.com/LukeZGD/Legacy-iOS-Kit">Legacy iOS Kit</a> and <a href="https://github.com/LukeZGD/EverPwnage">EverPwnage</a> by LukeZGD, <a href="https://github.com/NyanSatan/checkm8_bootkit">checkm8_bootkit</a> by NyanSatan, <a href="https://github.com/iH8sn0w/iBoot32Patcher">iBoot32Patcher</a> by iH8sn0w, and the Z2 touch work from <a href="https://projectsandcastle.org" target="_blank">Project Sandcastle</a>. The Cascadia app starts Linux with <a href="https://github.com/winocm">kloader</a> by winocm. The iPad mini's NAND driver is built on <a href="https://github.com/crystal-lized">crystal-lized</a>'s PPN NAND and FTL work. The app's TLS is <a href="https://www.bearssl.org/" target="_blank">BearSSL</a> by Thomas Pornin. The iPhone 11 port is built on <a href="https://github.com/yhavry/Hoolock-linux">Hoolock Linux</a> and <a href="https://github.com/AsahiLinux/m1n1">m1n1</a> from Asahi Linux, and boots with <a href="https://ps.tc/pages/blog-usbliter8.html" target="_blank">usbliter8</a>. The A12 ports build on <a href="https://github.com/HoolockLinux/linux">Hoolock Linux</a> and m1n1 as well.</p>
 					</details>
 					</div>
 				</details>
@@ -379,6 +492,15 @@
 						<span class="small rounded bg-danger p-1 text-white">Kernel &amp; Guide</span>
 					</div>
 				</a>
+				<a class="resource-tile" href="https://github.com/HoolockLinux/docs" target="_blank">
+					<img src="https://github.com/HoolockLinux.png" alt="">
+					<strong>Hoolock Linux</strong>
+					<p>Kernel and notes for building and booting Linux on A7–A11 and T2 devices</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">A7–A11</span>
+						<span class="small rounded bg-danger p-1 text-white">Kernel &amp; Guide</span>
+					</div>
+				</a>
 				<a class="resource-tile" href="https://github.com/teutekeune/iBSSloader" target="_blank">
 					<img src="https://github.com/teutekeune.png" alt="">
 					<strong>iBSSloader</strong>
@@ -404,6 +526,15 @@
 					<strong>postmarketOS</strong>
 					<p>Touch-optimized and pre-configured Alpine Linux</p>
 					<div class="resource-badges">
+						<span class="small rounded bg-danger p-1 text-white">Bootable OS</span>
+					</div>
+				</a>
+				<a class="resource-tile" href="https://forgejo.toe.quest/kiki/badapple" target="_blank">
+					<img src="img/badapple.png" alt="">
+					<strong>badapple</strong>
+					<p>Mainline Linux and postmarketOS on the iPhone XS Max. Tethered boot, root on the phone's storage.</p>
+					<div class="resource-badges">
+						<span class="small rounded bg-secondary p-1 text-white">iPhone XS Max</span>
 						<span class="small rounded bg-danger p-1 text-white">Bootable OS</span>
 					</div>
 				</a>
@@ -492,6 +623,22 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
+					<a href="https://github.com/rzxvx/Project-Cascadia" target="_blank"
+						class="text-decoration-none link-black">
+						<div class="card">
+							<img class="img-fluid card-img-contain" src="img/ipad-mini-1.png" alt="">
+							<div class="card-body">
+								<p class="card-text">
+									<small>November 2026</small>
+								</p>
+								<h4><strong>Project Cascadia boots Linux from the iPad mini's own storage</strong></h4>
+								<p>The Wi-Fi iPad mini 1 now starts Linux from its own flash, from an app on the home screen, with no computer. Prebuilt releases cover that iPad. The iPhone 11 has a tethered desktop, and further ports add the iPad 2, iPhone XR, iPad 8, and iPhone XS Max.</p>
+								<div class="btn btn-dark">Read on GitHub</div>
+							</div>
+						</div>
+					</a>
+				</div>
 				<div class="col-10 offset-1 offset-md-0 col-md-4 mt-2">
 					<a href="https://x.com/henrikklee/status/2114409814445195551" target="_blank"
 						class="text-decoration-none link-black">

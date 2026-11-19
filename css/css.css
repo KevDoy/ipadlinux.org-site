@@ -546,6 +546,11 @@ a, a:hover {
     padding: 10px 14px;
 }
 
+.release-limit ul {
+    margin: 8px 0 0;
+    padding-left: 1.1rem;
+}
+
 .release-card details {
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     padding: 10px 0 0;
